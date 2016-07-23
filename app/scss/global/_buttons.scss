@@ -1,0 +1,74 @@
+.location-button {
+  float: right;
+  padding: 10px 24px;
+  margin: 29px 0 0 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: $primary-color;
+  border: 1px solid #fff;
+  @include border-radius(3px);
+  @include font-size(16);
+  @include transition(300ms);
+  @include breakpoint(mobile) {
+	display: none;
+  }
+  &:hover{border-color: #fff}
+}
+.button-primary{
+
+}
+.button-secondary{
+
+}
+
+.menu-icon {
+  width: 26px;
+  height: 26px;
+  position: relative;
+  cursor: pointer;
+  margin: 5px 10px 10px;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #fff;
+  &:hover .bar {
+	background-color: $secondary-color;
+  }
+  &.active {
+	.one {
+	  background: $primary-color;
+	  top: 50%;
+	  @include transform(translateY(-50%) rotate(45deg));
+	}
+	.two {
+	  opacity: 0;
+	}
+	.three {
+	  bottom: 50%;
+	  background: $primary-color;
+	  @include transform(translateY(50%) rotate(-45deg));
+	}
+  }
+
+  .bar {
+	height: 4px;
+	width: 100%;
+	position: absolute;
+	background-color: $primary-color;
+	@include transition(0.3s);
+	@include transform-origin(50% 50%);
+  }
+  .one {
+	top: 0;
+	left: 0;
+  }
+  .two {
+	left: 0;
+	top: 50%;
+	@include transform(translateY(-50%));
+  }
+  .three {
+	bottom: 0;
+	left: 0;
+  }
+}
+

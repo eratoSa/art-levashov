@@ -1,0 +1,73 @@
+//* Reponsive Variables ---------------------------------------*/
+
+$wdl: 1408px; /*width-desktop-medium*/
+$wdm: 1248px; /*width-desktop-medium*/
+$wds: 1008px;  /*width- desktop-small*/
+$wt: 768px;   /*width-tablet*/
+$wml: 736px;   /*width-tablet*/
+$wm: 100%;     /*width-mobile*/
+
+/*---Grid Variables -----------------------------------------*/
+
+$cw: 4.119318181818182%;
+$mw: 1.065340909090909%;
+
+@mixin breakpoint($class) {
+
+  @if $class == desktop-medium {
+    @media (max-width: $wdl) { @content; }
+  }
+
+  @if $class == desktop-small {
+    @media (max-width: $wdm) { @content; }
+  }
+
+  @if $class == tablet {
+    @media (max-width: $wds) { @content; }
+  }
+
+  @if $class == mobile-large {
+    @media (max-width: $wt) { @content; }
+  }
+
+  @if $class == mobile {
+    @media (max-width: $wml) { @content; }
+  }
+
+}
+
+.container {
+  @include box_treatment;
+  width: 100%;
+  max-width: $wdl;
+  height: auto;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+
+  &:after{
+    content:" ";
+    clear: both;
+    position: relative;
+  }
+
+  @include breakpoint(desktop-medium) {
+    max-width: $wdm;
+  }
+
+  @include breakpoint(desktop-small) {
+    max-width: $wds;
+  }
+
+  @include breakpoint(tablet) {
+    max-width: $wt;
+  }
+
+  @include breakpoint(mobile-large) {
+    max-width: $wml;
+  }
+
+  @include breakpoint(mobile) {
+    max-width: $wm;
+  }
+}
